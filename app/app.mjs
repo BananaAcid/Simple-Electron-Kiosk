@@ -63,7 +63,7 @@ function createWindow () {
     // if all has been prepared, show the window
     mainWindow.once('ready-to-show', () => {
         mainWindow.setKiosk(true);
-        //'-> does also do this internaly:  mainWindow.show();
+        mainWindow.show();
     });
 
     // do NOT allow CMD+Q and ALT+F4 -- Siri may open another app and thus leave the kiosk
