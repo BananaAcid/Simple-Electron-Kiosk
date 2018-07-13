@@ -113,7 +113,7 @@ function createWindow () {
 }
 
 
-export default {init: async () =>
+//export default {init: async () =>
 { // app proccess events
 
     d('initiated.');
@@ -143,4 +143,4 @@ export default {init: async () =>
         }
     });
 }
-}
+//}

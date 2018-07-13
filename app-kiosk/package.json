@@ -10,6 +10,10 @@
   },
   "author": "Nabil Redmann <repo+electron@bananaacid.de>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BananaAcid/Simple-Electron-Kiosk.git"
+  },
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-electron": "^1.4.15",
