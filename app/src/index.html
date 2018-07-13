@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Simple Electron Kiosk</title>
+
+    <link rel="stylesheet/less" type="text/css" href="theme.less" />
+    <script src="less-3.7.0.min.js" ></script>
+
+    <!--link rel="stylesheet" type="text/css" href="theme.css"-->
+
+  </head>
+
+  <body>
+
+    <main>
+      <header>Simple Electron Kiosk</header>
+      
+      <article>
+        <p>
+          <!-- All of the Node.js APIs are available in this renderer process. -->
+          NodeJS version: <script>document.write(process.versions.node)</script>
+          <br>
+          Chromium version: <script>document.write(process.versions.chrome)</script>
+          <br>
+          Electron version: <script>document.write(process.versions.electron)</script>
+          <br>
+        </p>
+
+        <p>
+          OSX: CMD+Q or Win: ALT+F4 to close the kiosk app, is disabled.
+        </p>
+      </article>
+
+      <article>
+        <p>
+          <a href="#" ipc="button-hello" ipc-data="abc">test message transport</a> (check console)
+        </p>
+      
+        <p>
+          <a href="#" ipc="button-close">close app</a>
+        </p>
+      </article>
+    </main>
+
+  </body>
+  
+  <script>
+    require('./ipc.js');
+  </script>
+
+</html>
