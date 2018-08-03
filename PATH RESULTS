@@ -2,6 +2,7 @@ electron paths
 
 __dirname refers to index.mjs (parallel to loader.babel.js)
 
+be aware of globally installed modules - for unpacked.
 
 
 OSX unpacked
