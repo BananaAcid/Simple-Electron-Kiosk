@@ -1,0 +1,52 @@
+{
+  "_args": [
+    [
+      "debug-to-file@1.0.9",
+      "/Users/nabil/Documents/Projects - Clients/Bixby/Z_system"
+    ]
+  ],
+  "_from": "debug-to-file@1.0.9",
+  "_id": "debug-to-file@1.0.9",
+  "_inBundle": false,
+  "_integrity": "sha512-NYPHgPWQxPIJy1pHsSdfkykMiQFePnF8nE5jGNyWJ/0+rlHl5yc77vryfg5RmiHK9TqUUNPqPj5X2aPFFcaRrg==",
+  "_location": "/debug-to-file",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "debug-to-file@1.0.9",
+    "name": "debug-to-file",
+    "escapedName": "debug-to-file",
+    "rawSpec": "1.0.9",
+    "saveSpec": null,
+    "fetchSpec": "1.0.9"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/debug-to-file/-/debug-to-file-1.0.9.tgz",
+  "_spec": "1.0.9",
+  "_where": "/Users/nabil/Documents/Projects - Clients/Bixby/Z_system",
+  "author": "",
+  "dependencies": {
+    "ms": "^2.0.0"
+  },
+  "description": "[debug-to-file](http://github.com/131/debug-to-file) is tiny, no dependecy  helper to dump [debug](http://github.com/visionmedia/debug) traces to a file (through `DEBUG_FILE` env var).",
+  "devDependencies": {
+    "eslint-plugin-ivs": "^1.0.8",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5",
+    "nyks": "^3.19.0"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "name": "debug-to-file",
+  "peerDependencies": {
+    "debug": "^2.3.2"
+  },
+  "scripts": {
+    "eslint": "eslint index.js test",
+    "test": "node node_modules/mocha/bin/_mocha"
+  },
+  "version": "1.0.9"
+}

@@ -17,9 +17,7 @@ const {ipcRenderer} = require('electron');
 
 
 // msg receiver
-ipcRenderer.on('hello', function(data) {
-    console.warn('received', data);
-});
+ipcRenderer.on('hello', data => console.warn('received', data) );
 
 
 // auto bind to all elements with the attribute <element ipc="msg-identificator" ipc-data="some additional data" />
@@ -34,3 +32,9 @@ $(`[${identificator}]`).each( function (idx) {
         ipcRenderer.send( $self.attr(identificator), $self.attr(`${identificator}-data`) || $self.val() );
     });
 });
+
+
+// log loading
+ipcRenderer.on('system-log-get-result', (sender,data) => {$('xmp').text(data); console.log('data received from', {sender: sender, data: data}); } );
+// trigger on start
+$(() => ipcRenderer.send('system-log-get') );

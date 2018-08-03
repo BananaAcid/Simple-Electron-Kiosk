@@ -1,5 +1,7 @@
 import path from 'path';
+import fs from 'fs';
 import util from 'util';
+import './lib/debug-to-file_patched';
 import debug from 'debug';
 
 const d = debug('app:kiosk');
@@ -12,7 +14,7 @@ function i(el) {
 }
 
 // enable to DISABLE a few things
-const EASYDEBUG = false;
+const EASYDEBUG = process.env.EASYDEBUG || false;
 
 
 // proccess reference
@@ -32,18 +34,27 @@ let allowFocus = true;
 //if (!__dirname) var __dirname = path.resolve(path.dirname(decodeURI(new URL(imp     ort.meta.url).pathname))); // fucks up babel
 
 
+import arp from 'app-root-path';
+
+console.log('module:app-root-path\n\t', arp+'');
+console.log('app.getAppPath()\n\t', app.getAppPath());
+console.log(`app.getPath('exe')\n\t`, app.getPath('exe'));
+console.log('process.execPath\n\t', process.execPath);
+console.log('__dirname\n\t', __dirname);
+console.log('require.main.filename\n\t', require.main.filename);
+console.log('process.env.PORTABLE_EXECUTABLE_DIR\n\t', process.env.PORTABLE_EXECUTABLE_DIR);
 
 
 
 {// button tests
-    ipcMain.on('button-close', (event, arg)=> {
+    ipcMain.on('button-close', (event, arg) => {
         d('button action received: button-close ');
         
         allowQuit = true;
         app.quit();
     });
 
-    ipcMain.on('button-enabledev', (event, arg)=> {
+    ipcMain.on('button-enabledev', (event, arg) => {
         d('button action received: button-enabledev');
         
         //show the dev tools for debugging 
@@ -54,6 +65,22 @@ let allowFocus = true;
         d('button action received: button-hello = ' + arg);
         event.sender.send('hello', 'button-hello was received: ' + arg);
     });
+
+    ipcMain.on('system-log-get', (event, arg) => {
+        d('sending log');
+
+        event.sender.send('system-log-get-result', 'loading ...');
+
+        fs.readFile(process.env.DEBUG_FILE, 'utf8', function (err,data) {
+            if (err) {
+                event.sender.send('system-log-get-result', err.message);
+                return console.error(err);
+            }
+            else
+                event.sender.send('system-log-get-result', data);
+        });
+    });
+
 }
 
 
@@ -73,7 +100,7 @@ function createWindow () {
         titleBarStyle: (!EASYDEBUG ? 'hidden':'visible'),   // no title bar (just in case)
         //icon: path.join(__dirname, 'src/64x64.png'),      // statusbar icon
 
-        width: 500,                                         // for EASYDEBUG
+        width: 900,                                         // for EASYDEBUG
         height: 500                                         // ...
     });
 
@@ -87,6 +114,8 @@ function createWindow () {
 
         if (!EASYDEBUG)
             mainWindow.setKiosk(true);
+        else
+            mainWindow.webContents.openDevTools();
 
         mainWindow.show();
     });
