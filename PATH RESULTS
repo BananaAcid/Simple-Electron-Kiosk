@@ -7,17 +7,17 @@ __dirname refers to index.mjs (parallel to loader.babel.js)
 OSX unpacked
 -----------------
 module:app-root-path
-	 /Users/nabil/Documents/electron-test/app-kiosk
+	 /Users/BananaAcid/Documents/electron-test/app-kiosk
 app.getAppPath()
-	 /Users/nabil/Documents/electron-test/app-kiosk/node_modules/electron/dist/Electron.app/Contents/Resources/default_app.asar
+	 /Users/BananaAcid/Documents/electron-test/app-kiosk/node_modules/electron/dist/Electron.app/Contents/Resources/default_app.asar
 app.getPath('exe')
-	/Users/nabil/Documents/electron-test/app-kiosk/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
+	/Users/BananaAcid/Documents/electron-test/app-kiosk/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
 process.execPath
-	 /Users/nabil/Documents/electron-test/app-kiosk/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
+	 /Users/BananaAcid/Documents/electron-test/app-kiosk/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
 __dirname
-	 /Users/nabil/Documents/electron-test/app-kiosk
+	 /Users/BananaAcid/Documents/electron-test/app-kiosk
 require.main.filename
-	 /Users/nabil/Documents/electron-test/app-kiosk/loader.babel.js
+	 /Users/BananaAcid/Documents/electron-test/app-kiosk/loader.babel.js
 process.env.PORTABLE_EXECUTABLE_DIR
 	 undefined
 
@@ -25,17 +25,17 @@ process.env.PORTABLE_EXECUTABLE_DIR
 OSX packed
 -----------------
 module:app-root-path
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app
 app.getAppPath()
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app
 app.getPath('exe')
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/MacOS/Simple-Electron-Kiosk_osx
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/MacOS/Simple-Electron-Kiosk_osx
 process.execPath
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/MacOS/Simple-Electron-Kiosk_osx
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/MacOS/Simple-Electron-Kiosk_osx
 __dirname
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app
 require.main.filename
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app/loader.babel.js
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx-darwin-x64/Simple-Electron-Kiosk_osx.app/Contents/Resources/app/loader.babel.js
 process.env.PORTABLE_EXECUTABLE_DIR
 	 undefined
 
@@ -43,17 +43,17 @@ process.env.PORTABLE_EXECUTABLE_DIR
 OSX packed as ASAR
 ----------------------
 module:app-root-path
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar
 app.getAppPath()
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar
 app.getPath('exe')
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/MacOS/Simple-Electron-Kiosk_osx_asar
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/MacOS/Simple-Electron-Kiosk_osx_asar
 process.execPath
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/MacOS/Simple-Electron-Kiosk_osx_asar
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/MacOS/Simple-Electron-Kiosk_osx_asar
 __dirname
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar
 require.main.filename
-	 /Users/nabil/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar/loader.babel.js
+	 /Users/BananaAcid/Documents/electron-test/build/Simple-Electron-Kiosk_osx_asar-darwin-x64/Simple-Electron-Kiosk_osx_asar.app/Contents/Resources/app.asar/loader.babel.js
 process.env.PORTABLE_EXECUTABLE_DIR
 	 undefined
 
@@ -61,7 +61,7 @@ process.env.PORTABLE_EXECUTABLE_DIR
 Win unpacked
 ------------------
 module:app-root-path
-	 E:\test-app\src\app-kiosk
+	 C:\Users\BananaAcid\Documents\electron-test\src\app-kiosk
 app.getAppPath()
 	 C:\Users\BananaAcid\AppData\Roaming\npm\node_modules\electron\dist\resources\default_app.asar
 app.getPath('exe')
@@ -69,9 +69,9 @@ app.getPath('exe')
 process.execPath
 	 C:\Users\BananaAcid\AppData\Roaming\npm\node_modules\electron\dist\electron.exe
 __dirname
-	 E:\test-app\src\app-kiosk
+	 C:\Users\BananaAcid\Documents\electron-test\src\app-kiosk
 require.main.filename
-	 E:\test-app\src\app-kiosk\loader.babel.js
+	 C:\Users\BananaAcid\Documents\electron-test\src\app-kiosk\loader.babel.js
 process.env.PORTABLE_EXECUTABLE_DIR
 	 undefined
 
@@ -79,17 +79,17 @@ process.env.PORTABLE_EXECUTABLE_DIR
 Win packed
 ------------------
 module:app-root-path
-	 E:\test-app\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app
 app.getAppPath()
-	 E:\test-app\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app
 app.getPath('exe')
-	 E:\test-app\Simple-Electron-Kiosk_win_x64-win32-x64\Simple-Electron-Kiosk_win_x64.exe
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64-win32-x64\Simple-Electron-Kiosk_win_x64.exe
 process.execPath
-	 E:\test-app\Simple-Electron-Kiosk_win_x64-win32-x64\Simple-Electron-Kiosk_win_x64.exe
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64-win32-x64\Simple-Electron-Kiosk_win_x64.exe
 __dirname
-	 E:\test-app\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app
 require.main.filename
-	 E:\test-app\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app\loader.babel.js
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64-win32-x64\resources\app\loader.babel.js
 process.env.PORTABLE_EXECUTABLE_DIR
 	 undefined
 
@@ -97,16 +97,16 @@ process.env.PORTABLE_EXECUTABLE_DIR
 Win packed as ASAR
 -------------------
 module:app-root-path
-	 E:\test-app\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar
 app.getAppPath()
-	 E:\test-app\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar
 app.getPath('exe')
-	 E:\test-app\Simple-Electron-Kiosk_win_x64_asar-win32-x64\Simple-Electron-Kiosk_win_x64_asar.exe
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64_asar-win32-x64\Simple-Electron-Kiosk_win_x64_asar.exe
 process.execPath
-	 E:\test-app\Simple-Electron-Kiosk_win_x64_asar-win32-x64\Simple-Electron-Kiosk_win_x64_asar.exe
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64_asar-win32-x64\Simple-Electron-Kiosk_win_x64_asar.exe
 __dirname
-	 E:\test-app\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar
 require.main.filename
-	 E:\test-app\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar\loader.babel.js
+	 C:\Users\BananaAcid\Documents\electron-test\Simple-Electron-Kiosk_win_x64_asar-win32-x64\resources\app.asar\loader.babel.js
 process.env.PORTABLE_EXECUTABLE_DIR
 	 undefined
