@@ -20,6 +20,14 @@ const EASYDEBUG = process.env.EASYDEBUG || false;
 // proccess reference
 const app = electron.app;
 
+// prevent electron popup errors
+if (!EASYDEBUG)
+    process.on('uncaughtException', error => {
+        // Handle the error
+        console.error(error);
+        (app && app.exit(99)) || exit(99);
+    });
+
 // window reference
 let mainWindow;
 
