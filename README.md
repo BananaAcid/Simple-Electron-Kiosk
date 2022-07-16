@@ -8,7 +8,7 @@ A basic and super simple electron and babel based kiosk
     cd app-kiosk
     npm i
 
-    cd bin
-    ./start.sh
+    npm start
 ```
-start.sh or start.cmd (windows)
+
+run without debug: start.sh or start.cmd (windows)

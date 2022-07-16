@@ -6,16 +6,15 @@ import debug from 'debug';
 
 const d = debug('app:kiosk');
 
-import electron, {ipcMain, session} from 'electron';
+import electron, { ipcMain, session } from 'electron';
 
 // debug helper
-function i(el) {
+function i(el: any) {
     console.info(util.inspect(el, { showHidden: true, depth: null }));
 }
 
 // enable to DISABLE a few things
 const EASYDEBUG = process.env.EASYDEBUG || false;
-
 
 // proccess reference
 const app = electron.app;
@@ -25,11 +24,16 @@ if (!EASYDEBUG)
     process.on('uncaughtException', error => {
         // Handle the error
         console.error(error);
-        (app && app.exit(99)) || exit(99);
+        if (app) {
+            app.exit(99)
+        }
+        else {
+            process.exit(99);
+        }
     });
 
 // window reference
-let mainWindow;
+let mainWindow: electron.BrowserWindow | null;
 
 // quit is usually blocked
 let allowQuit = false;
@@ -44,32 +48,32 @@ let allowFocus = true;
 
 import arp from 'app-root-path';
 
-console.log('module:app-root-path\n\t', arp+'');
-console.log('app.getAppPath()\n\t', app.getAppPath());
-console.log(`app.getPath('exe')\n\t`, app.getPath('exe'));
-console.log('process.execPath\n\t', process.execPath);
-console.log('__dirname\n\t', __dirname);
-console.log('require.main.filename\n\t', require.main.filename);
-console.log('process.env.PORTABLE_EXECUTABLE_DIR\n\t', process.env.PORTABLE_EXECUTABLE_DIR);
+d('module:app-root-path\n\t', arp + '');
+d('app.getAppPath()\n\t', app.getAppPath());
+d(`app.getPath('exe')\n\t`, app.getPath('exe'));
+d('process.execPath\n\t', process.execPath);
+d('__dirname\n\t', __dirname);
+d('require.main.filename\n\t', require.main?.filename);
+d('process.env.PORTABLE_EXECUTABLE_DIR\n\t', process.env.PORTABLE_EXECUTABLE_DIR);
 
 
 
 {// button tests
     ipcMain.on('button-close', (event, arg) => {
         d('button action received: button-close ');
-        
+
         allowQuit = true;
         app.quit();
     });
 
     ipcMain.on('button-enabledev', (event, arg) => {
         d('button action received: button-enabledev');
-        
+
         //show the dev tools for debugging 
-        mainWindow.webContents.openDevTools();
+        mainWindow?.webContents.openDevTools();
     });
 
-    ipcMain.on('button-hello', (event, arg)=> {
+    ipcMain.on('button-hello', (event, arg) => {
         d('button action received: button-hello = ' + arg);
         event.sender.send('hello', 'button-hello was received: ' + arg);
     });
@@ -77,23 +81,29 @@ console.log('process.env.PORTABLE_EXECUTABLE_DIR\n\t', process.env.PORTABLE_EXEC
     ipcMain.on('system-log-get', (event, arg) => {
         d('sending log');
 
-        event.sender.send('system-log-get-result', 'loading ...');
+        if (process.env.DEBUG_FILE) {
+            event.sender.send('system-log-get-result', 'loading ...');
+            d('Debug File: ' + JSON.stringify(process.env.DEBUG_FILE));
 
-        fs.readFile(process.env.DEBUG_FILE, 'utf8', function (err,data) {
-            if (err) {
-                event.sender.send('system-log-get-result', err.message);
-                return console.error(err);
-            }
-            else
-                event.sender.send('system-log-get-result', data);
-        });
+            fs.readFile(process.env.DEBUG_FILE!, 'utf8', function (err, data) {
+                if (err) {
+                    event.sender.send('system-log-get-result', err.message);
+                    return console.error(err);
+                }
+                else
+                    event.sender.send('system-log-get-result', data);
+            });
+        }
+        else {
+            event.sender.send('system-log-get-result', 'no log file configured');
+        }
     });
 
 }
 
 
 // creating main window and sewtting required info
-function createWindow () {
+function createWindow() {
     d('main window: creating ...');
 
     // initil values
@@ -102,10 +112,17 @@ function createWindow () {
 
     // create main window
     mainWindow = new electron.BrowserWindow({
+        webPreferences: {
+            nodeIntegration: true,
+            nodeIntegrationInWorker: true,
+            nodeIntegrationInSubFrames: true,
+            sandbox: false,
+            contextIsolation: false,
+        },
         show: false,                                        // hide window, manually show it, when all is ready (no slow visual construction)
         frame: false,                                       // no borders
         backgroundColor: '#ccc',                            // basic background during any loading
-        titleBarStyle: (!EASYDEBUG ? 'hidden':'visible'),   // no title bar (just in case)
+        titleBarStyle: (!EASYDEBUG ? 'hidden' : 'default'),   // no title bar (just in case)
         //icon: path.join(__dirname, 'src/64x64.png'),      // statusbar icon
 
         width: 900,                                         // for EASYDEBUG
@@ -115,21 +132,22 @@ function createWindow () {
 
     // Load the app's interface
     mainWindow.loadURL(`file://${__dirname}/public/index.html`);
-     
+
     // if all has been prepared, show the window
     mainWindow.once('ready-to-show', () => {
         d('event ready-to-show');
 
         if (!EASYDEBUG)
-            mainWindow.setKiosk(true);
-        else
-            mainWindow.webContents.openDevTools();
+            mainWindow!.setKiosk(true);
+        else {
+            mainWindow!.webContents.openDevTools();  // --->  this does not work -- something wrong with electron.
+        }
 
-        mainWindow.show();
+        mainWindow!.show();
     });
 
     // do NOT allow CMD+Q and ALT+F4 -- Siri may open another app and thus leave the kiosk
-    mainWindow.on('close', (ev) => (!EASYDEBUG && !allowQuit) && ev.preventDefault() );
+    mainWindow.on('close', (ev) => (!EASYDEBUG && !allowQuit) && ev.preventDefault());
 
     // make sure, we free the reference
     mainWindow.on('closed', () => mainWindow = null);
@@ -137,8 +155,8 @@ function createWindow () {
     // in case of windows msgs showing up
     setInterval(() => {
         if (!EASYDEBUG && allowFocus) {
-            mainWindow.focus();
-            mainWindow.webContents.focus();
+            mainWindow!.focus();
+            mainWindow!.webContents.focus();
         }
     }, 1000);
 
@@ -159,7 +177,7 @@ function createWindow () {
     app.once('ready', () => {
         // https://electronjs.org/docs/tutorial/security#6-define-a-content-security-policy
         session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-            callback({responseHeaders: `default-src 'self'`});
+            callback({ 'responseHeaders': { 'Content-Security-Policy': `default-src 'self' 'unsafe-inline'` } });
         });
     });
 
@@ -169,7 +187,7 @@ function createWindow () {
     // handle window closing
     app.on('window-all-closed', () => {
         d('event window-all-closed');
-        if (mainWindow.isKiosk() || process.platform !== 'darwin') app.quit(); // OSX apps usually keep the container app open
+        if (mainWindow?.isKiosk() || process.platform !== 'darwin') app.quit(); // OSX apps usually keep the container app open
     });
 
     // handle reactivating the proccess

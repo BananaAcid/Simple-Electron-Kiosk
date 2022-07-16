@@ -3,9 +3,9 @@
   "productName": "Simple Electron Kiosk",
   "version": "1.0.0",
   "description": "A basic and super simple electron and babel based kiosk",
-  "main": "loader.babel.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "DEBUG=*,-babel  electron loader.babel.js",
+    "start": "DEBUG=* EASYDEBUG=true DEBUG_FILE=info.log   electron   -r ts-node/register --no-warnings   index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nabil Redmann <repo+electron@bananaacid.de>",
@@ -15,9 +15,14 @@
     "url": "git+https://github.com/BananaAcid/Simple-Electron-Kiosk.git"
   },
   "dependencies": {
-    "app-root-path": "^2.1.0",
+    "@types/app-root-path": "^1.2.4",
+    "@types/debug": "^4.1.7",
+    "app-root-path": "^3.0.0",
+    "electron": "^19.0.8",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-preset-electron": "^1.4.15",
-    "electron": "^2.0.4"
+    "babel-preset-electron": "^1.4.15"
   }
 }

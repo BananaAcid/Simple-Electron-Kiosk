@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true
+  }
+}
